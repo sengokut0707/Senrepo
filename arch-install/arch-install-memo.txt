@@ -6,6 +6,9 @@ sudo vim /boot/config.txt
     > dtparam=spi=on
 
 
+scp -r -P 1974 sengokut0707@deskmini1974.ddns.net:~/Git_dir/Senrepo
+
+
 ## パーティション
 ### あらかじめ、gpartedなどで設定しておく
 msdos(BIOS) / gpt(UEFI)
