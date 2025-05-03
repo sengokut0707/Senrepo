@@ -1,4 +1,0 @@
-## [CLIファイルマネージャrangerの基本設定](https://qiita.com/ssh0/items/3d71da415953003d47d7)
-rc.conf	ranger起動時に設定されるオプション、コマンドの設定
-rifle.conf	ファイル起動時に使用するアプリケーションの設定
-scope.sh	ファイルのプレビュー表示の設定
