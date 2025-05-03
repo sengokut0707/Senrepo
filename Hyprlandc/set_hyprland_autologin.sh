@@ -7,3 +7,13 @@ sudo sed -i 's/^ExecStart=-\/sbin\/agetty.*$/ExecStart=-\/sbin\/agetty --noclear
 sudo systemctl disable lightdm
 sudo systemctl disable getty@tty1
 sudo systemctl enable autologin@tty1
+
+
+cat > ~/.bash_profile << 'EOF'
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  exec Hyprland
+fi
+
+source ~/.bashrc
+EOF
+
