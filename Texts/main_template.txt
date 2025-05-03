@@ -1,0 +1,50 @@
+#!/usr/bin/env python3
+
+import os, pathlib
+#import subprocess
+#import datetime
+import argparse
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('argv', nargs='+')
+    return parser.parse_args()
+
+def main():
+    args = get_args()
+    argv_list = args.argv
+
+    #homedir = pathlib.Path.home()
+    #script_dir = pathlib.Path(__file__).resolve().parent
+    #p_file = pathlib.Path(input_file).resolve()
+    #os.makedirs(dirpath, exist_ok=True)
+
+    #proc = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    #result = proc.stdout
+
+
+    #with open(text_file) as f:
+    #    text_l = [s.strip() for s in f.readlines()]
+    #
+    #with open(text_file, mode='w') as f:
+    #    f.write('文字列')
+
+
+    #timestamp = datetime.datetime.now().strftime('%Y-%m-%d')
+
+
+
+def name_repair(name):
+    name = name.replace('[','').replace(']','')
+    ## タイトルに使えない文字の排除
+    for i in '\\' , '\"' , '\'' , '/' , ':' , '*' , '?' , '<' , '>' , '|' , '[' , ']' , ' ' , '　':
+        name = name.replace(i,'_')
+    while '__' in name:
+        name = name.replace('__','_')
+    while '_-_' in name:
+        name = name.replace('_-_','-')
+    return name
+
+
+if __name__ == '__main__':
+    main()
