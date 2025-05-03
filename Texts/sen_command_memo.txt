@@ -1,0 +1,382 @@
+## main
+"""
+#!/usr/bin/env python3
+
+import os, pathlib
+import argparse
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('argv', nargs='+')
+    return parser.parse_args()
+
+def main():
+    args = get_args()
+    argv_list = args.argv
+
+    #for input_file in argv_list:
+    #    print(input_file)
+
+main()
+"""
+
+
+
+## output_file
+"""
+def main_proc(input_file):
+    p_file = pathlib.Path(input_file).resolve()
+    dirpath = p_file.parent
+    stem, ext = p_file.stem, p_file.suffix
+
+    #homedir = pathlib.Path.home()
+    #script_dir = pathlib.Path(__file__).resolve().parent
+    #exist = p_file.exists()
+    output_dir = dirpath/f"dirname"
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_name = f"{stem}-sub{ext}"
+    output_file = output_dir / output_name
+    print(f"saved {output_name}")
+"""
+
+
+
+## argparse
+"""
+import argparse
+
+def get_args():
+    parser = argparse.ArgumentParser("help_text")
+    parser.add_argument('argv', nargs='+', help='引数の説明')
+    #parser.add_argument('-f','--flag', required='True', help='サブ引数の説明')
+    ## 引数に設定可能なオプション例
+    # action='store_true' : その引数があればTrue、なければFalseを返す。
+    # nargs='*' : 引数の数を指定。*は0個以上、+は1個以上。*や+のとき、値はリストとなる。
+    # default='好きな値' : 引数を指定しなかったとき、この値になる。defaultのデフォルトはNone。
+    # required = True : その引数を必須にする。
+    # choices = ['選択肢１', '選択肢２']：指定可能な値を設定することができる。
+    return parser.parse_args()
+
+def main():
+    args = get_args(help_text)
+    argv_list = args.argv
+    #flag = args.flag
+
+    for argv in argv_list:
+        print(argv)
+
+main()
+"""
+
+
+
+## output_file
+"""
+import pathlib
+import os
+
+p_file = pathlib.Path("filepath").resolve()
+dirpath = p_file.parent
+stem = p_file.stem
+ext = p_file.suffix.lstrip('.')
+
+homedir = pathlib.Path.home()
+script_dir = pathlib.Path(__file__).resolve().parent
+output_dir = dirpath ## or script_dir
+os.makedirs(output_dir, exist_ok=True)
+
+output_name = f"{stem}-sub.{ext}"
+output_file = output_dir / output_name
+"""
+
+
+
+## script_dir
+"""
+#import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+#import pathlib
+script_dir = pathlib.Path(__file__).resolve().parent
+
+## bash
+#script_dir=$(cd $(dirname $0) && pwd)
+"""
+
+
+
+## pathlib_path
+"""
+import pathlib
+
+filepath = '/path/to/file.ext'
+p_file = pathlib.Path(filepath).resolve()
+
+homedir = pathlib.Path.home()
+dirpath = p_file.parent
+filename = p_file.name
+stem = p_file.stem
+ext = p_file.suffix.lstrip('.')
+"""
+
+
+
+## os_path
+"""
+import os
+
+filepath = '/path/to/file.ext'
+
+homedir = os.path.expanduser("~")
+dirpath = os.path.dirname(filepath)
+stem, ext = os.path.splitext(os.path.basename(filepath))
+"""
+
+
+
+## name_repair
+"""
+def name_repair(name):
+    name = name.replace('[','').replace(']','')
+    ## タイトルに使えない文字の排除
+    for i in '\\' , '\"' , '\'' , '/' , ':' , '*' , '?' , '<' , '>' , '|' , '[' , ']' , ' ' , '　':
+        name = name.replace(i,'_')
+    while '__' in name:
+        name = name.replace('__','_')
+    while '_-_' in name:
+        name = name.replace('_-_','-')
+    return name
+"""
+
+
+
+## subprocces
+"""
+import subprocess
+
+cmd = "コマンド"
+proc = subprocess.run(cmd, shell=True)
+
+## 出力をテキストとして取得
+proc = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+result = proc.stdout
+error = proc.stderr
+"""
+
+
+
+## date_today
+"""
+import datetime
+dt = datetime.datetime.now()
+timestamp = dt.strftime('%Y-%m-%d')
+
+## それぞれ取得
+year = datetime.datetime.now().year
+month = datetime.datetime.now().month
+today = datetime.datetime.now().day
+
+## 文字列から日付
+dt = datetime.strptime(timestamp, '%Y-%m-%d')
+"""
+
+
+
+## is_textfile
+"""
+def is_text_file(file):
+    def is_binary_string(Bytes):
+        textchars = bytearray({7,8,9,10,12,13,27} | set(range(0x20, 0x100)) - {0x7f})
+        result = bool(Bytes.translate(None, textchars))
+        return result
+    result = is_binary_string(open(file, 'rb').r\ead(1024))
+    if result:
+        return False
+    else:
+        return True
+"""
+
+
+
+## text_file_read
+"""
+## テキストファイル読み込み
+text_file = "/path/to/file"
+
+with open(text_file) as f:
+    text = f.read()
+
+## テキストファイルをリストとして読み込み
+with open(text_file) as f:
+    text_l = [s.strip() for s in f.readlines()]
+
+## テキストファイル書き込み
+with open(text_file, mode='w') as f:
+    f.write('文字列')
+"""
+
+
+
+## tempdir
+"""
+import tempfile
+
+with tempfile.TemporaryDirectory() as dname:
+"""
+
+
+
+## file_exist
+"""
+import os
+os.path.exists(filepath)
+"""
+
+
+
+## zfillnum
+"""
+num_str = str(index).zfill(len(str(len(_list))))
+"""
+
+
+
+## is_num
+"""
+def is_num(n):
+    try:
+        int(n)
+    except:
+        return False
+    return True
+
+#n.isdecimal() ## 十進数
+#n.isdigit() ## 数字
+"""
+
+
+
+## try_except
+"""
+try:
+    print("run somthing")
+except Exception as error:
+    print(error)
+"""
+
+
+
+## print_overwrite
+"""
+import time
+
+for index in range(100):
+    print(f'\r{index}',end='')
+    time.sleep(0.1)
+"""
+
+
+
+## dict_list_sort
+"""
+from operator import itemgetter
+person_list = [{'name': 'a', 'age': 4}, {'name': 'b', 'age': 3}, {'name': 'c', 'age': 10}, {'name': 'd', 'age': 2}, {'name': 'e', 'age': 1}]
+sorted(person_list, key=itemgetter('age'))
+"""
+
+
+
+## csv_dict
+"""
+def get_csv_dict_list(csv_file):
+    csv_dict_list = []
+    with open(csv_file) as f:
+        reader = csv.DictReader(f)
+        csv_dict_list = [row for row in reader]
+        csv_dict_list = [{ k.strip():v.strip() for k, v in row.items() if k and v} for row in reader]
+    return csv_dict_list
+"""
+
+
+
+## enumerate
+"""
+for index, content in enumerate(_list):
+   print(f"{index}: {content}") 
+"""
+
+
+
+## re_num_in_str
+"""
+import re
+
+_str = '2020年'
+## 数字以外を削除
+result = re.sub(r"\D", "", _str)
+
+_str = '02月22日(木)'
+## 数字のリストを取得
+result_l = re.findall(r"\d+", _str) 
+"""
+
+
+
+## if_even_num
+"""
+if num % 2 == 0:
+    pass
+"""
+
+
+
+## zip_longest
+"""
+from itertools import zip_longest
+
+A_list, B_list = [],[]
+
+for A, B in zip_longest(A_list, B_list):
+    print([A, B])
+"""
+
+
+
+## bash_SCRIPT_DIR
+"""
+SCRIPT_DIR=$(cd $(dirname $0) && pwd)
+"""
+
+
+
+## vim_replace
+"""
+## abcを含む行を削除
+:g/abc/d
+
+## abcを含まない行を削除
+:v/abc/d
+
+## 置換前の文字列を使用
+:%s/\(文字列1\)-\(文字列2\)-abc/\1-\2-bcd/g
+:%s/\v(文字列1)-(文字列2)-abc/\1-\2-bcd/g
+"""
+
+
+
+## vim_serial_number
+"""
+## vim 連番
+0を挿入
+Ctrl+v ## 範囲指定
+g
+Ctrl+a
+"""
+
+
+## vim_sort
+"""
+## 3列目をソート
+:%sort /\([^,]*,\)\{2\}\zs[^,]*/ r
+"""
