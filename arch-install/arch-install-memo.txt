@@ -94,8 +94,8 @@ arch-chroot /mnt/root
 
 
     ## grub install bios
-    grub-install --target=i386-pc /dev/sda
-    grub-mkconfig -o /boot/grub/grub.cfg
+    #grub-install --target=i386-pc /dev/sda
+    #grub-mkconfig -o /boot/grub/grub.cfg
 
     ## grub efi64
     ## if "/sys/firmware/efi" exist
