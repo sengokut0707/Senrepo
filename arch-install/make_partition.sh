@@ -18,4 +18,7 @@ mkfs.fat -F32 -n BOOT_DISK "/dev/sda1"
 mkfs.ext4     -L ROOT_DISK "/dev/sda2"
 mkfs.ext4     -L HOME_DISK "/dev/sda3"
 
+partprobe /dev/sda
+sleep 2
+
 lsblk -f /dev/sda
