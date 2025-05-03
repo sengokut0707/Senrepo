@@ -1,0 +1,419 @@
+# arch-install
+
+## Raspi
+sudo vim /boot/config.txt
+    > dtparam=audio=on
+    > dtparam=spi=on
+
+
+## パーティション
+### あらかじめ、gpartedなどで設定しておく
+msdos(BIOS) / gpt(UEFI)
+## rz6:uefi
+# /dev/sda1 fat32 label=boot_disk 1024MB
+# /dev/sda2 ext4 label=root_disk 29.8gb
+# /dev/sda3 ext4 label=home_disk 81.99gb
+
+## root_diskにインストール用ファイルでも置いとく？
+
+
+
+## wifi接続
+iwctl
+    device list
+    station wlan0 scan
+    station wlan0 get-networks
+    station wlan0 connect "your-SSID"
+    exit
+
+ping archlinux.jp
+
+
+
+## pacstrap-install
+blkid  # fdisk -l
+mkdir /mnt/root
+mount /dev/disk/by-label/"LABELNAME" /mnt/root
+# mount "/dev/disk/by-label/root_disk" /mnt/root
+# mount "/dev/disk/by-label/boot_disk" /mnt/root/boot
+# mount "/dev/disk/by-label/home_disk" /mnt/root/home
+
+pacman -Sy archlinux-keyring
+pacstrap -K /mnt/root linux linux-firmware base base-devel dhcpcd linux-headers
+## ここで17分 → 3minだったが？
+
+genfstab -U /mnt/root >> /mnt/root/etc/fstab
+
+
+
+## install-2
+arch-chroot /mnt/root
+
+
+    ## basic-package install
+    pacman -S grub gvim git sudo iwd networkmanager
+
+
+    ## root-pass
+    passwd
+
+    ## user-settings
+    groupadd "USER"
+    useradd -m -g "USER" -s /bin/bash "USER"
+    passwd "USER"
+    groupadd sudo
+    usermod -G sudo "USER"
+
+    ## sudo
+    visudo ## "%sudo ALL=(ALL:ALL) ALL" をコメントアウト
+
+
+    ## grub install bios
+    grub-install --target=i386-pc /dev/sda
+    grub-mkconfig -o /boot/grub/grub.cfg
+
+    ## grub efi64
+    ## if "/sys/firmware/efi" exist
+    pacman -S grub dosfstools efibootmgr
+    grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub --recheck
+    mkdir /boot/EFI/boot
+    cp /boot/EFI/grub/grubx64.efi  /boot/EFI/boot/bootx64.efi
+    grub-mkconfig -o /boot/grub/grub.cfg
+
+
+
+    ## reboot
+    exit
+    reboot
+
+
+
+
+## network
+sudo systemctl enable NetworkManager
+sudo systemctl start  NetworkManager
+nmtui
+
+
+
+## povo-sim
+sudo pacman -S modemmanager
+sudo systemctl enable ModemManager
+sudo systemctl start  ModemManager
+sudo mmcli -L
+
+### firmfare
+sudo qmicli --device-open-mbim -p -d /dev/cdc-wdm0 --dms-swi-get-usb-composition
+sudo qmicli --device-open-mbim -p -d /dev/cdc-wdm0 --dms-swi-set-usb-composition=6
+sudo qmicli --device-open-mbim -p -d /dev/cdc-wdm0 --dms-set-operating-mode=reset
+sudo qmicli -p -d /dev/cdc-wdm0 --dms-swi-get-usb-composition
+
+xdg-open "https://source.sierrawireless.com/resources/airprime/minicard/74xx/em_mc74xx-approved-fw-packages/"
+
+sudo systemctl stop ModemManager.service
+sudo qmi-firmware-update -w /dev/cdc-wdm0 -u SWI9X30C_02.36.00.00.cwe SWI9X30C_02.36.00.00_KDDI_001.052_001.nvu
+
+sudo qmicli -p -d /dev/cdc-wdm0 --dms-swi-set-usb-composition=8
+sudo qmicli -p -d /dev/cdc-wdm0 --dms-set-operating-mode=reset
+
+sudo systemctl restart ModemManager.service
+
+sudo nmcli connection add con-name povo type gsm ifname cdc-wdm0 apn povo.jp user user@povo.jp password povo connection.zone external
+mmcli -m 0
+
+### mmcliの場合
+sudo mmcli -m /org/freedesktop/ModemManager1/Modem/0 --simple-connect="apn=povo.jp"
+
+### nmcliの場合
+sudo nmcli c add type gsm ifname "*" con-name povo apn povo.jp
+sudo nmcli c up povo
+
+
+### mineosim
+sudo nmcli connection add con-name mineo type gsm apn mineo-d.jp user mineo@k-opti.com password mineo
+
+
+
+## package-install
+sudo pacman -S \
+    fish ranger w3m pavucontrol sshfs rxvt-unicode \
+    xorg lightdm lightdm-gtk-greeter \
+    xdg-utils i3-wm i3blocks \
+    noto-fonts noto-fonts-cjk \
+    rofi feh dunst rsync conky \
+    alsa-utils alsa-lib alsa-firmware alsa-plugins \
+    polkit-gnome \
+    chromium \
+
+
+
+
+## lightdm
+sudo vim /etc/lightdm/lightdm.conf
+    autologin-user="USERNAME"
+    autologin-session=i3
+sudo systemctl enable lightdm.service
+sudo groupadd autologin
+sudo gpasswd -a "USERNAME" autologin
+
+
+
+## mount
+sudo blkid
+    ## UUID or LAVEL を確認
+sudo vim /etc/fstab
+    LABEL=home_disk  /home  ext4  defaults,noatime 0 0
+
+
+
+### hostname
+sudo hostnamectl hostname cfnx3
+
+#sudo vim /etc/hostname
+#    "your-HOSTNAME"
+#
+#sudo vim /etc/hosts
+#    127.0.0.1 localhost
+#    ::1 localhosts
+#    127.0.0.1 "your-HOSTNAME".local domain "your-HOSTNAME"
+
+
+
+## localegen
+sudo vim /etc/locale.gen
+    ja_JP.UTF-8
+sudo locale-gen
+
+sudo localectl set-locale LANG=ja_JP.UTF-8
+
+#sudo vim /etc/locale.conf
+#    LANG=ja_JP.UTF-8
+
+
+
+## clock
+sudo timedatectl set-timezone Asia/Tokyo
+sudo timedatectl set-ntp true
+
+
+
+## YAY 関連
+cd /tmp && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si 
+yay -S trash-cli i3-scrot greenclip-rofi update-grub
+
+
+
+## grub
+sudo cp -vu /etc/default/grub /etc/default/grub_old
+sudo sed -i 's/^GRUB_TIMEOUT=.*/GRUB_TIMEOUT=0/g' /etc/default/grub
+sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT=\"acpi_backlight=video acpi_osi=!\"/g' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+yay -S update-grub && sudo update-grub
+
+
+
+## python関係
+sudo pacman -S python-lxml python-requests python-beautifulsoup4 python-pypdf python-flask python-markdown python-pyperclip python-feedparser python-natsort img2pdf
+
+
+
+
+
+
+
+## other-package-install
+sudo pacman -S \
+    viewnior ufw firefox-i18n-ja bash-completion wget unarchiver mpv picom ruby feh libnotify xclip gnome-keyring jre-openjdk \
+    noto-fonts-emoji noto-fonts-extra ttf-droid ttf-dejavu otf-ipafont 
+
+yay -S \
+    batsignal open-jtalk zoom llpp
+
+
+
+## bluetooth-audio
+yay -S pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-firmware
+
+
+
+## tkinter
+sudo pacman -S tk
+
+
+
+## sshserver
+sudo pacman -S openssh
+sudo systemctl enable sshd
+
+mkdir -p ~/.ssh
+touch ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+sudo vim /etc/ssh/sshd_config
+    #Port {port}
+    #PermitRootLogin no
+    #PasswordAuthentication no
+
+sudo systemctl restart sshd
+
+#cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
+
+
+
+## suspend
+sudo vim /etc/systemd/logind.conf
+    """
+    HandleLidSwitch=suspend
+    HandleLidSwitchExternalPower=ignore
+    """
+
+
+
+## cinnamon
+yay -S faenza-icon-theme numix-themes
+
+
+
+## ip固定
+nmcli connection modify tplink_sen_E27A ipv4.method "manual" ipv4.addresses "192.168.0.198/24" ipv4.gateway "192.168.0.1"
+
+
+
+## steam install
+sudo vim /etc/pacman.conf
+    [multilib]
+    Include = /etc/pacman.d/mirrorlist
+
+sudo pacman -Syyu
+yay -S steam
+
+
+
+## nextcloud
+
+"""
+version: '3'
+
+volumes:
+  nextcloud:
+  db:
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    volumes:
+      - db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=Hevark7906
+      - MYSQL_PASSWORD=Hevark7906
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+
+  app:
+    container_name: nextcloud-app
+    image: nextcloud
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - nextcloud:/var/www/html
+    restart: always
+"""
+
+sudo docker-compose up -d 
+## 80 address already in use
+## sudo lsof -i:80 
+
+sudo docker-compose ps
+## 入力
+    username:sengokut0707
+    pass:Hevark7906
+
+    mysql
+    /var/www/html/data
+    username:nextcloud
+    pass:Hevark7906
+    database:nextcloud
+    host:db:3306
+
+## docker exec -it [name] bash
+## apt update && apt install fish vim
+## sudo docker cp nextcloud-app:/var/www/html/config/config.php ./ 
+## sudo docker cp ./config.php nextcloud-app:/var/www/html/config/config.php  
+
+
+
+## android-studio
+yay -S android-studio
+
+
+## mozc-dictionary
+/usr/lib/mozc/mozc_tool --mode=dictionary_tool
+/usr/lib/mozc/mozc_tool --mode=config_dialog
+
+
+
+## samba
+sudo pacman -S samba
+sudo pdbedit -a "USER"
+sudo vim /etc/samba/smb.conf
+"""
+[global]
+# 大文字と小文字を区別する。
+case sensitive = yes
+
+# NetBIOS 名が見つからなかった場合に DNS による解決を試行しない。
+dns proxy = no
+
+# 192.168.0.0/24 と 127.0.0.0/8 (Loopback) からのアクセスを許可する。
+hosts allow = 192.168.0. 127. deskmini1974.ddns.net
+
+# root ユーザからのアクセスを禁止する。
+invalid users = root
+
+# ログファイルの名前を設定する。%m は NetBios 名に置換される。
+log file = /var/log/samba/%m.log
+
+# ログファイルの最大サイズを KB 単位で指定する。
+max log size = 10000
+
+# SMB1 は無効化し、SMB2 以降を使用する。
+server min protocol = SMB2
+
+# 認証やリソースの管理をこのサーバーで完結させるスタンドアロンモードで動作させる。
+server role = standalone server
+
+# サーバーの説明文を設定する。%h はホスト名に置換される。
+server string = Samba File Server on %h
+
+# Mac が create mask を無視しておかしなパーミッションを設定する問題のワークアラウンド。
+unix extensions = no
+
+# サーバーが sendfile() をサポートする場合にこれを利用し、パフォーマンスを最適化する。
+use sendfile = yes
+
+# ワークグループの名前を適当に設定する。
+workgroup = WORKGROUP
+
+# 全ての Samba ユーザーからアクセス可能な共有ファイルサーバーを定義する。
+[public]
+
+    # サーバー上のファイルパスを指定する。
+    path = /home/Storage
+
+    # ユーザー名とパスワードを使用して認証を行う。
+    security = sengokut0707
+
+    # 共有ファイルへの読み込みだけでなく書き込みも許可する。
+    writable = yes
+"""
+sudo systemctl enable smb nmb
+sudo systemctl start smb nmb
+
+
+
+## masterduel
+"PROTON_USE_WINED3D=1 %command%"
