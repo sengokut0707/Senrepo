@@ -7,4 +7,4 @@ sudo pacman -S \
     rofi feh dunst rsync conky \
     alsa-utils alsa-lib alsa-firmware alsa-plugins \
     polkit-gnome \
-    chromium \
+    ttf-font-awesome \
