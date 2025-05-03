@@ -1,0 +1,5 @@
+## cmd
+alias gitf="$alias_bin/gitfor.sh"
+alias gcm="$alias_bin/gcm.sh"
+alias unar="$alias_bin/unar_argv.sh"
+alias rmv="$alias_bin/remove.sh"
