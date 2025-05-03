@@ -100,7 +100,7 @@ arch-chroot /mnt/root
 
 
     ## basic-package install
-    pacman -S grub gvim git sudo iwd networkmanager
+    pacman -S --noconfirm grub gvim git sudo iwd networkmanager
 
 
     ## root-pass
