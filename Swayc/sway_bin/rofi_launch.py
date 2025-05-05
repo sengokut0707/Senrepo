@@ -55,7 +55,7 @@ def get_rofi_dict(text_list):
 
 def get_rofi_cmd(title_list):
     ttl = '"\n"'.join(title_list)
-    rofi_cmd = f'echo {ttl}| rofi -lines 1 -i -dmenu -p bookmark -columns 20 -width 100% -disable-history -theme solarized'
+    rofi_cmd = f'echo {ttl}| wofi -dmenu -p bookmark -disable-history -s ~/.config/wofi/*.css'
     return rofi_cmd
 
 
