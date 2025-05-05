@@ -34,6 +34,7 @@ exec --no-startup-id $bg
 exec --no-startup-id $screen_sleep
 exec --no-startup-id waybar
 exec --no-startup-id pcloud ## pcloud
+exec --no-startup-id autotiling
 
 
 ## shortcut
