@@ -18,18 +18,18 @@ def main():
         text_list = get_text_list(text_file)
         wofi_dict.update(get_wofi_dict(text_list))
     title_list = list(wofi_dict.keys())
-    title = subprocess.run(get_wofi_cmd(title_list), shell=True, capture_output=True, text=True).stdout
-    if not title:
+    user_input = subprocess.run(get_wofi_cmd(title_list), shell=True, capture_output=True, text=True).stdout
+    if not user_input:
         print('Null')
         exit()
-    elif wofi_dict.get(title.rstrip('\n')):
-        cmd = wofi_dict.get(title.rstrip('\n'))
+    elif wofi_dict.get(user_input.rstrip('\n')):
+        cmd = wofi_dict.get(user_input.rstrip('\n'))
     else:
         cmd = ""
-        ## キーワード検索
-        #target = '+'.join(title.rstrip('\n').split(' '))
-        #cmd = "xdg-open 'http://google.com/search?q=" + target + "' 1>/dev/null 2>/dev/null" 
-        #print(cmd)
+        for title in title_list:
+            if user_input.rstrip('\n') in title:
+                cmd = wofi_dict.get(title.rstrip('\n'))
+                break
     proc = subprocess.run(cmd, shell=True)
 
 
