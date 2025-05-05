@@ -13,17 +13,17 @@ def main():
     args = get_args()
     text_files = args.text_files
 
-    rofi_dict = {}
+    wofi_dict = {}
     for text_file in text_files:
         text_list = get_text_list(text_file)
-        rofi_dict.update(get_rofi_dict(text_list))
-    title_list = list(rofi_dict.keys())
-    title = subprocess.run(get_rofi_cmd(title_list), shell=True, capture_output=True, text=True).stdout
+        wofi_dict.update(get_wofi_dict(text_list))
+    title_list = list(wofi_dict.keys())
+    title = subprocess.run(get_wofi_cmd(title_list), shell=True, capture_output=True, text=True).stdout
     if not title:
         print('Null')
         exit()
-    elif rofi_dict.get(title.rstrip('\n')):
-        cmd = rofi_dict.get(title.rstrip('\n'))
+    elif wofi_dict.get(title.rstrip('\n')):
+        cmd = wofi_dict.get(title.rstrip('\n'))
     else:
         cmd = ""
         ## キーワード検索
@@ -41,22 +41,22 @@ def get_text_list(text_file):
     return text_list
 
 
-def get_rofi_dict(text_list):
-    rofi_dict = {}
+def get_wofi_dict(text_list):
+    wofi_dict = {}
     for text in text_list:
         title, cmd = text.split(',')
         title, cmd = [s.strip() for s in [title, cmd]]
         title = name_repair(title)
         if cmd.startswith('http'):
             cmd = 'xdg-open ' + cmd
-        rofi_dict[title] = cmd
-    return rofi_dict
+        wofi_dict[title] = cmd
+    return wofi_dict
 
 
-def get_rofi_cmd(title_list):
+def get_wofi_cmd(title_list):
     ttl = '"\n"'.join(title_list)
-    rofi_cmd = f'echo {ttl}| wofi -dmenu -p bookmark -disable-history -s ~/.config/wofi/*.css'
-    return rofi_cmd
+    wofi_cmd = f'echo {ttl}| wofi -dmenu -p bookmark -disable-history -s ~/.config/wofi/*.css'
+    return wofi_cmd
 
 
 
