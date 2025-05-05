@@ -1,0 +1,15 @@
+## ~/.config/sway/config
+input "type:keyboard" {
+    xkb_options "caps:none"
+}
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    drag enabled
+    natural_scroll no
+    scroll_method edge
+    middle_emulation enabled
+}
+
+include $HOME/.config/sway/*.conf
+include $HOME/.config/sway/*.swayrc

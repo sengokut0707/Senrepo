@@ -1,0 +1,82 @@
+## base
+set $mod Mod4
+set $exec exec --no-startup-id
+set $browser google-chrome-stable
+set $terminal urxvt
+set $greenclip rofi -modi 'clipboard:greenclip print' -show clipboard -lines 1 -columns 20 -width 100% -theme solarized
+set $gdrive https://drive.google.com/drive/my-drive
+set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
+set $gmail_sen https://mail.google.com/?authuser=sengokut0707@gmail.com
+set $qiita https://qiita.com/Yurinohaku
+set $bookmark /home/sengokut0707/.config/sway/sway_bin/rofi_launch.py -t $HOME/Git_dir/Notes/bookmark.txt
+set $volume_up pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $volume_mute pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $msg swaymsg
+set $screenshot grimshot --notify save output $HOME/screenshot_$(date "+%y%m%d%H%M%S").png
+set $screenshotw grimshot --notify save window $HOME/screenshot_$(date "+%y%m%d%H%M%S").png
+set $bg swaybg -i $HOME/.wallpaper/*.png -m fill
+set $screen_sleep swayidle -w timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
+set $menu wofi -G --show drun
+
+
+
+## startup
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ## polkit
+exec --no-startup-id fcitx ## 文字入力
+exec --no-startup-id dunst ## 通知
+exec --no-startup-id picom -b ## 透過
+exec --no-startup-id greenclip daemon>/dev/null ## clipbord
+exec --no-startup-id batsignal  ## バッテリ低下警告
+exec --no-startup-id xrdb -merge $HOME/.Xresources
+exec --no-startup-id $bg
+exec --no-startup-id $screen_sleep
+exec --no-startup-id waybar
+exec --no-startup-id pcloud ## pcloud
+
+
+## shortcut
+bindsym $mod+a $exec $menu
+bindsym $mod+b $exec $bookmark
+bindsym $mod+c $exec $greenclip
+bindsym $mod+g $exec xdg-open $gmail_sen
+bindsym $mod+d $exec xdg-open $gdrive
+bindsym $mod+h $exec $msg bar mode toggle
+bindsym $mod+i $exec $msg focus up
+bindsym $mod+Shift+i $exec $msg move up
+bindsym $mod+j $exec $msg focus left
+bindsym $mod+Shift+j $exec $msg move left
+bindsym $mod+k $exec $msg focus down
+bindsym $mod+Shift+k $exec $msg move down
+bindsym $mod+l $exec $msg focus right
+bindsym $mod+Shift+l $exec $msg move right
+bindsym $mod+m $exec $volume_mute
+bindsym $mod+n $exec $terminal -e nmtui
+bindsym $mod+p $exec $screenshotw
+bindsym $mod+Shift+p $exec $screenshot
+bindsym $mod+q $exec xdg-open $qiita
+bindsym $mod+Shift+q $exec $msg kill
+bindsym $mod+Shift+r $exec $msg mode 'resize'
+bindsym $mod+t $exec $terminal
+bindsym $mod+v $exec $msg split v && notify-send 'tile vertically'
+bindsym $mod+w $exec $browser
+bindsym $mod+x $exec $msg layout toggle stacking tabbed splith
+bindsym $mod+z $exec pkill picom || picom -b
+bindsym $mod+Shift+0 $exec sleep 0.5 && xset dpms force off
+bindsym $mod+Left $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left
+bindsym $mod+Shift+Left $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left -m
+bindsym $mod+Return $exec $terminal
+bindsym $mod+Right $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right
+bindsym $mod+Shift+Right $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right -m
+bindsym $mod+Tab $exec $msg workspace next
+bindsym $mod+Shift+Tab $exec $msg workspace prev
+bindsym $mod+comma $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left
+bindsym $mod+Shift+comma $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left -m
+bindsym $mod+minus $exec $volume_down
+bindsym $mod+Shift+minus $exec /home/sengokut0707/.config/sway/sway_bin/brightness_down.sh
+bindsym $mod+period $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right
+bindsym $mod+Shift+period $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right -m
+bindsym $mod+equal $exec $volume_up
+bindsym $mod+Shift+equal $exec /home/sengokut0707/.config/sway/sway_bin/brightness_up.sh
+bindsym $mod+semicolon $exec $msg split h && notify-send 'tile horizontally'
+bindsym $mod+space $exec $msg floating toggle
