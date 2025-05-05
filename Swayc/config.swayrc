@@ -3,12 +3,12 @@ set $mod Mod4
 set $exec exec --no-startup-id
 set $browser google-chrome-stable
 set $terminal urxvt
-set $greenclip rofi -modi 'clipboard:greenclip print' -show clipboard -lines 1 -columns 20 -width 100% -theme solarized
+set $greenclip wofi -modi 'clipboard:greenclip print' -show clipboard -lines 1 -columns 20 -width 100% -theme solarized
 set $gdrive https://drive.google.com/drive/my-drive
 set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
 set $gmail_sen https://mail.google.com/?authuser=sengokut0707@gmail.com
 set $qiita https://qiita.com/Yurinohaku
-set $bookmark /home/sengokut0707/.config/sway/sway_bin/rofi_launch.py -t $HOME/Git_dir/Notes/bookmark.txt
+set $bookmark /home/sengokut0707/.config/sway/sway_bin/wofi_launch.py -t $HOME/Git_dir/Notes/bookmark.txt
 set $volume_up pactl set-sink-volume @DEFAULT_SINK@ +5%
 set $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
 set $volume_mute pactl set-sink-mute @DEFAULT_SINK@ toggle
