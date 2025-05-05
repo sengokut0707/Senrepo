@@ -1,0 +1,132 @@
+### favorite
+メディカルナレッジ/medi     ,https://medical-knowledge.jp/mkServer/login
+ナレッジデリ/deli           ,https://deli3.study.jp/rpv/
+SmartHR                     ,https://nicho.smarthr.jp/login
+日本調剤MyPage/nihon/nicho  ,https://job.axol.jp/jn/s/nicho_24/mypage/login
+PMDA                        ,https://www.pmda.go.jp/PmdaSearch/iyakuSearch/
+hevark1974/gmail            ,https://mail.google.com/?authuser=hevark1974@gmail.com
+sengokut0707/gmail          ,https://mail.google.com/?authuser=sengokut0707@gmail.com
+GoogleDocument              ,https://docs.google.com/document/
+GoogleSpreadSheet           ,https://docs.google.com/spreadsheets/
+GooglePhoto                 ,https://photos.google.com/
+GoogleMap                   ,https://www.google.co.jp/maps/?hl=ja
+deepL翻訳/translate         ,https://www.deepl.com/ja/translator
+Google翻訳/translate        ,https://translate.google.co.jp/?hl=ja
+ニコニコ動画/nico           ,https://www.nicovideo.jp/my/?ref=pc_mypage_menu
+Youtube                     ,https://m.youtube.com/feed/library
+天気/tenki/weather          ,https://tenki.jp/forecast/2/7/3410/4104/
+TMPU-ActiveMail             ,https://webmail.is.tohoku-mpu.ac.jp/am_bin/amlogin
+Google                      ,https://www.google.co.jp/
+
+
+### USE
+Amazon                      ,https://www.amazon.co.jp/
+Qiita_百合野ハク            ,https://qiita.com/Yurinohaku
+ProtonMail                  ,https://mail.proton.me/
+メルカリ/mercari            ,https://www.mercari.com/jp/
+Twitter/X                   ,https://mobile.twitter.com/
+Qiita記事作成               ,https://qiita.com/drafts/new
+GoogleDrive                 ,https://drive.google.com/drive/my-drive
+NHKニュース/NEWS            ,https://www3.nhk.or.jp/news/
+Yahoo                       ,https://www.yahoo.co.jp/
+PSDtool                     ,https://oov.github.io/psdtool/    
+chatGPT                     ,https://chat.openai.com/
+
+
+### BANK
+viewカード/Suica            ,https://www.viewsnet.jp/
+イオン銀行/aeonbank         ,https://www.aeonbank.co.jp/
+暮らしのマネーサイト/aeon   ,https://www.aeon.co.jp
+Paypay銀行/paypaybank       ,https://login.paypay-bank.co.jp/
+三菱UFJデビット/mitubisi    ,https://debit.bk.mufg.jp/p/login/
+三菱UFJ銀行/mitubisih       ,https://entry11.bk.mufg.jp/ibg/dfw/APLIN/loginib/login?_TRANID=AA000_001&link_id=direct_leftmenu_login_PC
+七十七銀行/77bank           ,https://www.77bank.co.jp/inb/login_saat.html
+ねんきんネット/nennkinn     ,https://www3.idpass-net.nenkin.go.jp/
+ヨドバシ/yodobashi          ,https://www.yodobashi.com/
+dポイント/dpoint            ,https://cfg.smt.docomo.ne.jp/auth/cgi/anidlogin?rl=http://smt.docomo.ne.jp/
+OCNモバイル                 ,https://service.ocn.ne.jp/mobile/
+povo                        ,https://povo.jp/
+softbank                    ,https://my.softbank.jp/msb/d/webLink/doSend/MSB020093
+
+
+### 準USE
+yurino8805-gmail            ,https://mail.google.com/?authuser=yurino8805@gmail.com
+pcloud                      ,https://www.pcloud.com/ja/
+Bitwarden                   ,https://vault.bitwarden.com/#/vault
+codePrint_ソースコード印刷  ,https://service.matatsuna.net/codeprint/
+SimpleNote                  ,https://app.simplenote.com/login/
+DLsite_マイページ           ,https://www.dlsite.com/home/mypage
+DLsite_Play                 ,https://play.dlsite.com/#/library
+GoogleCalendar              ,https://calendar.google.com/calendar
+GoogleSlide                 ,https://docs.google.com/presentation
+Office_Online               ,https://www.office.com/?flight=unauthrefresh&auth=1
+仙台市図書館/sendai_library     ,https://lib-opac.smt.city.sendai.jp/winj/opac/search-detail.do?lang=ja
+名取市図書館/natori_library     ,http://lib.city.natori.miyagi.jp/web/
+dアニメストア/danime        ,https://site.nicovideo.jp/danime/
+じゃんぱら/janpara          ,https://www.janpara.co.jp/
+ドスパラ/dospara            ,https://www.dospara.co.jp/5sp/
+pushbullet                  ,https://www.pushbullet.com/
+GoogleKeep                  ,https://keep.google.com/
+生協/coop                   ,https://atcoop.ef.cws.coop/auth/bb/login.do
+
+
+### その他
+Twitter_developer           ,https://developer.twitter.com/en/portal/dashboard
+GooGleエクスポート/export   ,https://takeout.google.com/
+Google_Play                 ,https://play.google.com/
+Abema                       ,https://abema.tv/now-on-air/everybody-anime2
+PrimeVideo                  ,https://www.amazon.co.jp/PrimeVideo
+Chromeウェブストア/webstore ,https://chrome.google.com/webstore/category/extensions?hl=ja
+タイピング練習/typing       ,https://typing.twi1.me/game/122
+読書メーター/dokusho        ,http://bookmeter.com/
+PDFescape/オンラインPDF編集     ,https://www.pdfescape.com/
+Evernote                    ,https://www.evernote.com/
+じゃんたま/jantama          ,https://mahjongsoul.com/
+Renpy覚え書き               ,http://www.make-suisen.com/renpy/index.html
+Renpyドキュメント           ,https://ja.renpy.org/doc/html/
+どこトレ/dokotore           ,https://doko-train.jp/
+Zoomテスト                  ,https://zoom.us/test
+薬科大5ch                   ,https://itest.5ch.net/test/read.cgi/student/1606104280
+Google Cloud Platform       ,https://console.cloud.google.com/
+PySimpleGUI                 ,https://github.com/PySimpleGUI/PySimpleGUI/blob/master/readme.ja.md
+ユライク/ulike              ,https://www.ulike-med.com/medicines/index
+pocket                      ,https://getpocket.com/saves
+家計簿/kakeibo              ,https://docs.google.com/spreadsheets/d/1R_XOuzwAVjZ8IyTKzTA7Vfv_tzj8aXVS8QjYDoTa224/edit?usp=sharing
+
+
+## 5年次_薬物動態学教室
+5X1_実務実習Webシステム     ,https://training-phm.fujifilm.com/Usersite
+5X2_実務実習準備            ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=967
+5X3_症例解析・処方解析-PBL・第１クール  ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=1644
+5x4_アドバンス薬学演習_R4年度1クール    ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=1893
+5Z1_薬理学Ⅲ                 ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=1775
+5Z2_感染制御学              ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=1854
+
+
+### TMPU6年
+6x1_R5基礎学力演習          ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2199
+6x2_R5副作用病態学          ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2197
+6x3_R5医療倫理と患者心理    ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2198
+6x4_R5国試対策模擬試験      ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2200
+6x5_R5薬学総合演習          ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2647
+6x6_R5国試対策特別補講Ⅰ（ファーマ）,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2650
+6x7_R5国試対策特別補講Ⅰ（薬ゼミ）,https://moodle2.tohoku-mpu.ac.jp/moodle/course/view.php?id=2651
+
+
+
+### 薬学関連
+薬ゼミマイページ/yakuzemi   ,https://student.yakuzemi.ac.jp/
+薬ゼミWeb問題/yakuzemi      ,https://el.yakuzemi.net/WebPractice/
+薬ゼミオンライン教室/yakuzemi  ,https://yakuzemi.study.jp/rpv/default.aspx
+TMPU-ネットワーク認証/login    ,http://10.1.1.1
+TMPU-検温/kenon             ,https://sv06.cns.tohoku-mpu.ac.jp/kenon/hokoku.php
+TMPU-電子ポートフォリオ     ,https://sv06.cns.tohoku-mpu.ac.jp/rubric/portfolio.php
+TMPU-就職支援関係           ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/index.php?categoryid=421
+TMPU-Moodle2                ,https://moodle2.tohoku-mpu.ac.jp/moodle/login/index.php
+TMPU-ActiveSmart            ,https://webmail.is.tohoku-mpu.ac.jp/am_bin/slogin/
+TMPU-Campusmate-J           ,https://portal.tohoku-mpu.ac.jp/campusweb/top.do
+TMPU-大学HP                 ,http://www.tohoku-mpu.ac.jp/
+TMPU-大学図書館/library     ,http://www.tohoku-mpu.ac.jp/library
+メディセレ/medisere         ,https://www.medisere.co.jp/pass
+TMPU-情報科学センター/tmpucenter    ,http://iswmd.is.tohoku-mpu.ac.jp/info/
+TMPU-ji自習室               ,https://polr.tohoku-mpu.ac.jp/sb
