@@ -3,7 +3,7 @@ set $mod Mod4
 set $exec exec --no-startup-id
 set $browser google-chrome-stable
 set $terminal urxvt
-set $greenclip rofi -modi 'clipboard:greenclip print' -show clipboard -lines 1 -columns 20 -width 100% -theme solarized
+set $clipboard clipman wofi wl-clipboard
 set $gdrive https://drive.google.com/drive/my-drive
 set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
 set $gmail_sen https://mail.google.com/?authuser=sengokut0707@gmail.com
@@ -26,7 +26,8 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 #
 exec --no-startup-id fcitx ## 文字入力
 exec --no-startup-id dunst ## 通知
 exec --no-startup-id picom -b ## 透過
-exec --no-startup-id greenclip daemon>/dev/null ## clipbord
+#exec --no-startup-id greenclip daemon>/dev/null ## clipbord
+exec --no-startup-id clipman store >/dev/null ## clipbord
 exec --no-startup-id batsignal  ## バッテリ低下警告
 exec --no-startup-id xrdb -merge $HOME/.Xresources
 exec --no-startup-id $bg
@@ -38,7 +39,7 @@ exec --no-startup-id pcloud ## pcloud
 ## shortcut
 bindsym $mod+a $exec $menu
 bindsym $mod+b $exec $bookmark
-bindsym $mod+c $exec $greenclip
+bindsym $mod+c $exec $clipboard
 bindsym $mod+g $exec xdg-open $gmail_sen
 bindsym $mod+d $exec xdg-open $gdrive
 bindsym $mod+h $exec $msg bar mode toggle
