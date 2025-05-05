@@ -3,7 +3,7 @@ set $mod Mod4
 set $exec exec --no-startup-id
 set $browser google-chrome-stable
 set $terminal urxvt
-set $clipboard clipman wofi wl-clipboard
+set $clipboard cliphist list | wofi --show dmenu | cliphist decode | wl-copy
 set $gdrive https://drive.google.com/drive/my-drive
 set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
 set $gmail_sen https://mail.google.com/?authuser=sengokut0707@gmail.com
@@ -27,7 +27,7 @@ exec --no-startup-id fcitx ## 文字入力
 exec --no-startup-id dunst ## 通知
 exec --no-startup-id picom -b ## 透過
 #exec --no-startup-id greenclip daemon>/dev/null ## clipbord
-exec --no-startup-id clipman store >/dev/null ## clipbord
+exec --no-startup-id wl-paste --watch cliphist store & ## clipbord
 exec --no-startup-id batsignal  ## バッテリ低下警告
 exec --no-startup-id xrdb -merge $HOME/.Xresources
 exec --no-startup-id $bg
