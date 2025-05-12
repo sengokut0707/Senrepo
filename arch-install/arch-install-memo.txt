@@ -1,5 +1,18 @@
 # arch-install
 
+
+## wifi接続
+iwctl
+    device list
+    station wlan0 scan
+    station wlan0 get-networks
+    station wlan0 connect "your-SSID"
+    exit
+
+ping -c 3 archlinux.jp
+
+
+
 ## Raspi
 sudo vim /boot/config.txt
     > dtparam=audio=on
@@ -40,18 +53,6 @@ mkfs.ext4     -L ROOT_DISK "/dev/sda2"
 mkfs.ext4     -L HOME_DISK "/dev/sda3"
 
 lsblk -f /dev/sda
-
-
-
-## wifi接続
-iwctl
-    device list
-    station wlan0 scan
-    station wlan0 get-networks
-    station wlan0 connect "your-SSID"
-    exit
-
-ping -c 3 archlinux.jp
 
 
 
