@@ -13,10 +13,10 @@ ping -c 3 archlinux.jp
 
 
 
-## Raspi
-sudo vim /boot/config.txt
-    > dtparam=audio=on
-    > dtparam=spi=on
+### Raspi
+#sudo vim /boot/config.txt
+#    > dtparam=audio=on
+#    > dtparam=spi=on
 
 
 scp -r -P 1974 sengokut0707@deskmini1974.ddns.net:~/Git_dir/Senrepo
