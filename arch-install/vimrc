@@ -1,0 +1,194 @@
+
+"文字コードをUFT-8に設定
+set fenc=utf-8
+" バックアップファイルを作らない
+set nobackup
+" スワップファイルを作らない
+set noswapfile
+" 編集中のファイルが変更されたら自動で読み直す
+set autoread
+" バッファが編集中でもその他のファイルを開けるように
+set hidden
+" 入力中のコマンドをステータスに表示する
+set showcmd
+
+
+" 見た目系
+" 行番号を表示
+set number
+" 現在の行を強調表示
+set cursorline
+" 現在の行を強調表示（縦）
+"set cursorcolumn
+" 行末の1文字先までカーソルを移動できるように
+set virtualedit=onemore
+" インデントはスマートインデント
+set smartindent
+" ビープ音を可視化
+"set visualbell
+" 括弧入力時の対応する括弧を表示
+set showmatch
+" ステータスラインを常に表示
+set laststatus=2
+" コマンドラインの補完
+set wildmode=list:longest
+" 折り返し時に表示行単位での移動できるようにする
+nnoremap j gj
+nnoremap k gk
+" シンタックスハイライトの有効化
+syntax enable
+
+
+" Tab系
+" 不可視文字を可視化(タブが「▸-」と表示される)
+set list listchars=tab:\▸\-
+" Tab文字を半角スペースにする
+set expandtab
+" 行頭以外のTab文字の表示幅（スペースいくつ分）
+set tabstop=4
+" 行頭でのTab文字の表示幅
+set shiftwidth=4
+
+
+" 検索系
+" 検索文字列が小文字の場合は大文字小文字を区別なく検索する
+set ignorecase
+" 検索文字列に大文字が含まれている場合は区別して検索する
+set smartcase
+" 検索文字列入力時に順次対象文字列にヒットさせる
+set incsearch
+" 検索時に最後まで行ったら最初に戻る
+set wrapscan
+" 検索語をハイライト表示
+set hlsearch
+" ESC連打でハイライト解除
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+
+" 新規追加
+" Undoの永続化
+if has('persistent_undo')
+    let undo_path = expand('~/.vim/undo')
+    exe 'set undodir=' .. undo_path
+    set undofile
+endif
+" remap h to insert and use ijkl for inverse T cursor movement
+map h <insert>
+map i <Up>
+map j <Left>
+map k <Down>
+
+set clipboard=unnamedplus
+
+" https://vim-jp.org/vim-users-jp/2009/09/26/Hack-78.html
+" https://qiita.com/shinshin86/items/6e6cbdb77cb59b87d21f
+" https://qiita.com/rita_cano_bika/items/e447c042e70327014609
+function! CSVH(...)
+    if a:0 == 0
+        let n = strlen(substitute(getline('.')[0:col('.')-1], "[^,]", "", "g"))
+    elseif a:1 == 0
+        let n = a:1
+    else
+        let n = a:1 -1
+    endif
+    let pos = getpos(".")
+    execute 'match Keyword /^\([^,]*,\)\{'.n.'}\zs[^,]*/'
+    execute 'normal ^'.n.'f,'
+    call setpos(".", pos)
+endfunction
+command! -nargs=? Ch :call CSVH(<f-args>)
+
+
+
+function! CSVSORT(...)
+    if a:0 == 0
+        let n = strlen(substitute(getline('.')[0:col('.')-1], "[^,]", "", "g"))
+    elseif a:1 == 0
+        let n = a:1
+    else
+        let n = a:1 -1
+    endif
+    let pos = getpos(".")
+    execute '2,$sort /\([^,]*,\)\{'.n.'\}\zs[^,]*/r'
+    call setpos(".", pos)
+endfunction
+command! -nargs=? Cs :call CSVSORT(<f-args>)
+command! -nargs=? Csort :call CSVSORT(<f-args>)
+
+
+
+function! CSVSORT_R(...)
+    if a:0 == 0
+        let n = strlen(substitute(getline('.')[0:col('.')-1], "[^,]", "", "g"))
+    elseif a:1 == 0
+        let n = a:1
+    else
+        let n = a:1 -1
+    endif
+    let pos = getpos(".")
+    execute '2,$sort! /\([^,]*,\)\{'.n.'\}\zs[^,]*/r'
+    call setpos(".", pos)
+endfunction
+command! -nargs=? Csr :call CSVSORT_R(<f-args>)
+command! -nargs=? Csortr :call CSVSORT_R(<f-args>)
+
+
+
+function! CSVSWAP(...)
+    let n = strlen(substitute(getline('.')[0:col('.')-1], "[^,]", "", "g")) + 1
+    if a:1 == 'right'
+        let numbers = [n, n+1]
+    elseif a:1 == 'left'
+        let numbers = [n-1, n]
+    elseif a:0 == 1
+        let numbers = split(a:1,',')
+    elseif a:0 == 2
+        let numbers = [a:1 , a:2]
+    else
+        echo 'error! wrong number of arguments.'
+        return
+    endif
+    if numbers[0] > numbers[1]
+        let fst = numbers[1]
+        let sec = numbers[0]
+    else
+        let fst = numbers[0]
+        let sec = numbers[1]
+    endif
+
+    let fst = fst - 1
+    let sec = sec - fst - 1 - 1
+    if fst < 0
+        return
+    endif
+    execute ':silent %s/$/,/g'
+    execute ':%s/\v^((.{-},){'.fst.'})(.{-},)((.{-},){'.sec.'})(.{-},)(.*$)/\1\6\4\3\7'
+    execute ':silent %s/,$//g'
+endfunction
+command! -nargs=* Csw :call CSVSWAP(<f-args>)
+command! -nargs=* Cw :call CSVSWAP(<f-args>)
+command! -nargs=* Cr :call CSVSWAP('right')
+command! -nargs=* Cright :call CSVSWAP('right')
+command! -nargs=* Cl :call CSVSWAP('left')
+command! -nargs=* Cleft :call CSVSWAP('left')
+
+
+function! CSVCOLUMN()
+    let pos = getpos(".")
+    if search('\s\+,') || search(',\s\+') || search('^\s\+') || search('\s\+$')
+        execute 'silent %s/\s*,\s*/,/g'
+        execute 'silent %s/^\s*//g'
+        execute 'silent %s/\s*$//g'
+    else
+        let filepath = tempname()
+        execute "silent w! ".filepath
+        let column_text=system("column -t -s ',' -o ', ' '".filepath."'")
+        execute 'silent %d'
+        call setline(1, split(column_text,'\n'))
+        execute 'silent %s/\r//g'
+        call delete(filepath)
+    endif
+    call setpos(".", pos)
+endfunction
+command! -nargs=0 Cc :call CSVCOLUMN()
+command! -nargs=0 Ccolumn :call CSVCOLUMN()
