@@ -2,7 +2,7 @@
 set $mod Mod4
 set $exec exec --no-startup-id
 set $browser google-chrome-stable
-set $terminal urxvt
+set $terminal foot
 set $clipboard cliphist list | wofi --show dmenu | cliphist decode | wl-copy
 set $gdrive https://drive.google.com/drive/my-drive
 set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
@@ -32,9 +32,6 @@ exec --no-startup-id xrdb -merge $HOME/.Xresources
 exec --no-startup-id $bg
 exec --no-startup-id $screen_sleep
 exec --no-startup-id waybar
-exec --no-startup-id autotiling
-#exec --no-startup-id greenclip daemon>/dev/null ## clipbord
-#exec --no-startup-id pcloud ## pcloud
 
 
 ## shortcut
