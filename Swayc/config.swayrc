@@ -7,7 +7,6 @@ set $clipboard cliphist list | wofi --show dmenu | cliphist decode | wl-copy
 set $gdrive https://drive.google.com/drive/my-drive
 set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
 set $gmail_sen https://mail.google.com/?authuser=sengokut0707@gmail.com
-set $qiita https://qiita.com/Yurinohaku
 set $bookmark /home/sengokut0707/.config/sway/sway_bin/wofi_launch.py -t $HOME/Git_dir/Notes/bookmark.txt
 set $volume_up pactl set-sink-volume @DEFAULT_SINK@ +5%
 set $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -53,7 +52,6 @@ bindsym $mod+m $exec $volume_mute
 bindsym $mod+n $exec $terminal -e nmtui
 bindsym $mod+p $exec $screenshotw
 bindsym $mod+Shift+p $exec $screenshot
-bindsym $mod+q $exec xdg-open $qiita
 bindsym $mod+Shift+q $exec $msg kill
 bindsym $mod+Shift+r $exec $msg mode 'resize'
 bindsym $mod+t $exec $terminal
