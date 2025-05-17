@@ -1,0 +1,43 @@
+#Match host Raspi exec "test -e /storage/emulated/0/.stay_home"
+#        Hostname 192.168.0.197
+#        User hevark1974
+#        Port 1974
+#
+#
+#Match host Raspi exec "iwconfig 2>/dev/null | grep -q 'tplink-sen'"
+#        Hostname 192.168.0.197
+#        User hevark1974
+#        Port 1974
+#
+#
+Host Raspi
+  Hostname deskmini1974.ddns.net
+  User sengokut0707
+  Port 1974
+
+
+Host gcloud
+  Hostname 35.238.97.140
+  User sengokut0707
+
+
+Host deskmini1974
+  Hostname 192.168.0.200
+  User sengokut0707
+  Port 1974
+
+
+Host Cfnx3
+    Hostname 192.168.0.198
+    User sengokut0707
+    Port 1974
+#
+#Host Termux
+#  Hostname 192.168.1.100
+#  User hevark1974
+#  Port 8022
+#
+#Host Desk
+#  Hostname 192.168.1.23
+#  User hevark1974
+#  Port 1974
