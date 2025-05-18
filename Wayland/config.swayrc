@@ -5,8 +5,7 @@ set $browser google-chrome-stable
 set $terminal foot
 set $clipboard cliphist list | wofi --show dmenu | cliphist decode | wl-copy
 set $gdrive https://drive.google.com/drive/my-drive
-set $gmail_hevark https://mail.google.com/?authuser=hevark1974@gmail.com
-set $gmail_sen https://mail.google.com/?authuser=sengokut0707@gmail.com
+set $gmail https://mail.google.com/?authuser=sengokut0707@gmail.com
 set $bookmark /home/sengokut0707/.config/sway/sway_bin/wofi_launch.py -t $HOME/.config/sway/wofi_menu.txt
 set $volume_up pactl set-sink-volume @DEFAULT_SINK@ +5%
 set $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -37,7 +36,7 @@ exec --no-startup-id waybar
 bindsym $mod+a $exec $menu
 bindsym $mod+b $exec $bookmark
 bindsym $mod+c $exec $clipboard
-bindsym $mod+g $exec xdg-open $gmail_sen
+bindsym $mod+g $exec xdg-open $gmail
 bindsym $mod+d $exec xdg-open $gdrive
 bindsym $mod+h $exec $msg bar mode toggle
 bindsym $mod+i $exec $msg focus up
