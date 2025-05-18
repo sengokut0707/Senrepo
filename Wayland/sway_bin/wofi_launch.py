@@ -27,7 +27,7 @@ def main():
     else:
         cmd = ""
         for title in title_list:
-            if user_input.rstrip('\n') in title:
+            if user_input.rstrip('\n').lower() in title.lower():
                 cmd = wofi_dict.get(title.rstrip('\n'))
                 break
     proc = subprocess.run(cmd, shell=True)
