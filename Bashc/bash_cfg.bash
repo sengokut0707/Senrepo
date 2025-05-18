@@ -7,10 +7,7 @@ source ${script_dir}/alias
 source ${script_dir}/alias_cmd
 
 PATH=$PATH:$HOME/.local/bin
-PATH=$PATH:$HOME/Git_dir/Python
-PATH=$PATH:$HOME/Git_dir/Ruby
-PATH=$PATH:$HOME/Git_dir/Scripts
-PATH=$PATH:$HOME/Git_dir/Notes
+PATH=$PATH:$HOME/.bash_cfg/alias_bin
 
 if type hostname 1>/dev/null 2>/dev/null; then
     HOSTNAME=`hostname`
