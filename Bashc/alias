@@ -50,33 +50,6 @@ alias Cfnx3="ssh Cfnx3"
 alias deskmini1974="ssh deskmini1974"
 
 alias refile="refilename.py"
-alias D='Diary.py'
-
-
-
-
-
-## shortcut
-alias 00_Test="cd ~/Git_dir/00_Test"
-
-alias Ruby="cd ~/Git_dir/Ruby"
-alias Scripts="cd ~/Git_dir/Scripts"
-alias Notes="cd ~/Git_dir/Notes"
-alias Bookmark="cd ~/Git_dir/Bookmark"
-
-alias Python="cd ~/Git_dir/Python"
-alias Flask="cd ~/Git_dir/Python/Flask"
-
-alias Systems="cd ~/Git_dir/Systems"
-alias Termuxc="cd ~/Git_dir/Systems/Termuxc"
-alias I3wmc="cd ~/Git_dir/Systems/I3wmc"
-alias Bashc="cd ~/Git_dir/Systems/Bashc"
-alias Raspic="cd ~/Git_dir/Systems/Raspic"
-alias Hyprlandc="cd ~/Git_dir/Systems/Hyprlandc"
-
-alias Git_dir="cd ~/Git_dir"
-alias Storage="cd ~/Storage"
-
 
 
 
