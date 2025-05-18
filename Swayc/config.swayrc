@@ -22,7 +22,7 @@ set $menu wofi -G --show drun
 
 ## startup
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ## polkit
-exec --no-startup-id fcitx ## 文字入力
+exec --no-startup-id fcitx5 ## 文字入力
 exec --no-startup-id dunst ## 通知
 exec --no-startup-id picom -b ## 透過
 exec --no-startup-id wl-paste --watch cliphist store & ## clipbord
