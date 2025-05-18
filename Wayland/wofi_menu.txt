@@ -1,0 +1,99 @@
+### favorite
+メディカルナレッジ/medi     ,https://medical-knowledge.jp/mkServer/login
+ナレッジデリ/deli           ,https://deli3.study.jp/rpv/
+PMDA                        ,https://www.pmda.go.jp/PmdaSearch/iyakuSearch/
+gmail                       ,https://mail.google.com/
+GoogleDocument              ,https://docs.google.com/document/
+GoogleSpreadSheet           ,https://docs.google.com/spreadsheets/
+GooglePhoto                 ,https://photos.google.com/
+GoogleMap                   ,https://www.google.co.jp/maps/?hl=ja
+deepL翻訳/translate         ,https://www.deepl.com/ja/translator
+Google翻訳/translate        ,https://translate.google.co.jp/?hl=ja
+ニコニコ動画/nico           ,https://www.nicovideo.jp/my/?ref=pc_mypage_menu
+Youtube                     ,https://m.youtube.com/feed/library
+天気/tenki/weather          ,https://tenki.jp/forecast/2/7/3410/4104/
+TMPU-ActiveMail             ,https://webmail.is.tohoku-mpu.ac.jp/am_bin/amlogin
+Google                      ,https://www.google.co.jp/
+
+
+### USE
+Amazon                      ,https://www.amazon.co.jp/
+Qiita_百合野ハク            ,https://qiita.com/Yurinohaku
+ProtonMail                  ,https://mail.proton.me/
+メルカリ/mercari            ,https://www.mercari.com/jp/
+Twitter/X                   ,https://mobile.twitter.com/
+Qiita記事作成               ,https://qiita.com/drafts/new
+GoogleDrive                 ,https://drive.google.com/drive/my-drive
+NHKニュース/NEWS            ,https://www3.nhk.or.jp/news/
+Yahoo                       ,https://www.yahoo.co.jp/
+PSDtool                     ,https://oov.github.io/psdtool/    
+chatGPT                     ,https://chat.openai.com/
+
+
+### BANK
+viewカード/Suica            ,https://www.viewsnet.jp/
+イオン銀行/aeonbank         ,https://www.aeonbank.co.jp/
+暮らしのマネーサイト/aeon   ,https://www.aeon.co.jp
+Paypay銀行/paypaybank       ,https://login.paypay-bank.co.jp/
+三菱UFJデビット/mitubisi    ,https://debit.bk.mufg.jp/p/login/
+三菱UFJ銀行/mitubisih       ,https://entry11.bk.mufg.jp/ibg/dfw/APLIN/loginib/login?_TRANID=AA000_001&link_id=direct_leftmenu_login_PC
+七十七銀行/77bank           ,https://www.77bank.co.jp/inb/login_saat.html
+ねんきんネット/nennkinn     ,https://www3.idpass-net.nenkin.go.jp/
+ヨドバシ/yodobashi          ,https://www.yodobashi.com/
+dポイント/dpoint            ,https://cfg.smt.docomo.ne.jp/auth/cgi/anidlogin?rl=http://smt.docomo.ne.jp/
+OCNモバイル                 ,https://service.ocn.ne.jp/mobile/
+povo                        ,https://povo.jp/
+softbank                    ,https://my.softbank.jp/msb/d/webLink/doSend/MSB020093
+
+
+### 準USE
+pcloud                      ,https://www.pcloud.com/ja/
+Bitwarden                   ,https://vault.bitwarden.com/#/vault
+SimpleNote                  ,https://app.simplenote.com/login/
+DLsite_マイページ           ,https://www.dlsite.com/home/mypage
+DLsite_Play                 ,https://play.dlsite.com/#/library
+GoogleCalendar              ,https://calendar.google.com/calendar
+Office_Online               ,https://www.office.com/?flight=unauthrefresh&auth=1
+dアニメストア/danime        ,https://site.nicovideo.jp/danime/
+じゃんぱら/janpara          ,https://www.janpara.co.jp/
+ドスパラ/dospara            ,https://www.dospara.co.jp/5sp/
+pushbullet                  ,https://www.pushbullet.com/
+GoogleKeep                  ,https://keep.google.com/
+生協/coop                   ,https://atcoop.ef.cws.coop/auth/bb/login.do
+
+
+### その他
+Twitter_developer           ,https://developer.twitter.com/en/portal/dashboard
+GooGleエクスポート/export   ,https://takeout.google.com/
+Google_Play                 ,https://play.google.com/
+PrimeVideo                  ,https://www.amazon.co.jp/PrimeVideo
+Chromeウェブストア/webstore ,https://chrome.google.com/webstore/category/extensions?hl=ja
+読書メーター/dokusho        ,http://bookmeter.com/
+PDFescape/オンラインPDF編集     ,https://www.pdfescape.com/
+Evernote                    ,https://www.evernote.com/
+じゃんたま/jantama          ,https://mahjongsoul.com/
+Renpy覚え書き               ,http://www.make-suisen.com/renpy/index.html
+Renpyドキュメント           ,https://ja.renpy.org/doc/html/
+どこトレ/dokotore           ,https://doko-train.jp/
+Zoomテスト                  ,https://zoom.us/test
+薬科大5ch                   ,https://itest.5ch.net/test/read.cgi/student/1606104280
+Google Cloud Platform       ,https://console.cloud.google.com/
+PySimpleGUI                 ,https://github.com/PySimpleGUI/PySimpleGUI/blob/master/readme.ja.md
+
+
+
+### 薬学関連
+薬ゼミマイページ/yakuzemi   ,https://student.yakuzemi.ac.jp/
+薬ゼミWeb問題/yakuzemi      ,https://el.yakuzemi.net/WebPractice/
+薬ゼミオンライン教室/yakuzemi  ,https://yakuzemi.study.jp/rpv/default.aspx
+TMPU-ネットワーク認証/login    ,http://10.1.1.1
+TMPU-電子ポートフォリオ     ,https://sv06.cns.tohoku-mpu.ac.jp/rubric/portfolio.php
+TMPU-就職支援関係           ,https://moodle2.tohoku-mpu.ac.jp/moodle/course/index.php?categoryid=421
+TMPU-Moodle2                ,https://moodle2.tohoku-mpu.ac.jp/moodle/login/index.php
+TMPU-ActiveSmart            ,https://webmail.is.tohoku-mpu.ac.jp/am_bin/slogin/
+TMPU-Campusmate-J           ,https://portal.tohoku-mpu.ac.jp/campusweb/top.do
+TMPU-大学HP                 ,http://www.tohoku-mpu.ac.jp/
+TMPU-大学図書館/library     ,http://www.tohoku-mpu.ac.jp/library
+メディセレ/medisere         ,https://www.medisere.co.jp/pass
+TMPU-情報科学センター/tmpucenter    ,http://iswmd.is.tohoku-mpu.ac.jp/info/
+TMPU-ji自習室               ,https://polr.tohoku-mpu.ac.jp/sb
