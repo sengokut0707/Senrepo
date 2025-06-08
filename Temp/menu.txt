@@ -1,0 +1,7 @@
+リビング１ON,"/usr/bin/python3 /usr/local/share/bto/bto.py -s lighton1"
+リビング１OFF,"/usr/bin/python3 /usr/local/share/bto/bto.py -s lightoff1"
+リビング２ON,"/usr/bin/python3 /usr/local/share/bto/bto.py -s lighton2"
+リビング２OFF,"/usr/bin/python3 /usr/local/share/bto/bto.py -s lightoff2"
+暖房ON,"/usr/bin/python3 /usr/local/share/bto/bto.py -s aircon_danbou"
+冷房ON,"/usr/bin/python3 /usr/local/share/bto/bto.py -s aircon_reibou"
+エアコンOFF,"/usr/bin/python3 /usr/local/share/bto/bto.py -s reibouoff"
