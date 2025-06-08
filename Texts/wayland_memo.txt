@@ -1,0 +1,10 @@
+## display
+
+#swaymsg -t get_outputs
+
+swaymsg output DP-1 pos 0 0
+swaymsg output HDMI-A-1 pos 1980 1080
+
+#.config/sway/config
+output HDMI-A-1 pos 0 0 bg ~/backgrounds/bg2.png fit
+output eDP-1 pos 0 1080 bg ~/backgrounds/bg1.png fit
