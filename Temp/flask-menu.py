@@ -92,4 +92,4 @@ def load_menu(text_files):
 if __name__ == "__main__":
     args = get_args()
     MENU_DICT = load_menu(args.text_files)
-    app.run(debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
