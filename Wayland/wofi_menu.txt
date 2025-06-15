@@ -14,6 +14,7 @@ Youtube                     ,https://m.youtube.com/feed/library
 天気/tenki/weather          ,https://tenki.jp/forecast/2/7/3410/4104/
 TMPU-ActiveMail             ,https://webmail.is.tohoku-mpu.ac.jp/am_bin/amlogin
 Google                      ,https://www.google.co.jp/
+ブックライブ/booklive       ,https://booklive.jp/my/book-shelf
 
 
 ### USE
