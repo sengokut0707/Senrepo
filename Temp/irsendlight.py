@@ -6,7 +6,7 @@ import argparse
 
 def get_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-l', '--light', default='12', choices=['1', '2', '12'])
+    parser.add_argument('-l', '--light', default='light12', choices=['light1', 'light2', 'light12'])
     parser.add_argument('-m', '--mode', default='on', choices=['on', 'off', 'mini'])
     return parser.parse_args()
 
@@ -16,12 +16,10 @@ def main():
     mode = args.mode
     light = args.light
 
-    if light == '1':
-        light_list = ['light1']
-    elif light == '2':
-        light_list = ['light2']
-    else:
+    if light == 'light12':
         light_list = ['light1', 'light2']
+    else:
+        light_list = [light]
 
     for light in light_list:
         b64 = IR_DATA[light][mode]
@@ -31,7 +29,7 @@ def main():
 
 IR_DATA = {
     'light1': {
-        'on':(
+        'on':
             "MHgwMSwweDU4LDB4MDAsMHhhYywweDAwLDB4MTcsMHgwMCwweDE1LDB4MDAsMHgxNywweDAwLDB4"
             "NDAsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAw"
             "LDB4MTUsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNyww"
@@ -44,8 +42,8 @@ IR_DATA = {
             "MCwweDQwLDB4MDAsMHgxNywweDAwLDB4MTUsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcs"
             "MHgwMCwweDQwLDB4MDAsMHgxNywweDAwLDB4NDAsMHgwMCwweDE4LDB4MDAsMHgxNSwweDAwLDB4"
             "MTcsMHgwMCwweDQwLDB4MDAsMHgxNywweDAwLDB4MTYsMHgwMCwweDE3LDB4MDYsMHgxOQ=="
-        )
-        'off':(
+            ,
+        'off':
             "MHgwMSwweDU5LDB4MDAsMHhhYiwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAwLDB4"
             "NDAsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTgsMHgwMCwweDE1LDB4MDAsMHgxNywweDAw"
             "LDB4MTYsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTgsMHgwMCwweDE1LDB4MDAsMHgxNyww"
@@ -58,8 +56,8 @@ IR_DATA = {
             "MCwweDQwLDB4MDAsMHgxNywweDAwLDB4MTYsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTcs"
             "MHgwMCwweDE2LDB4MDAsMHgxNywweDAwLDB4MTYsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4"
             "MTcsMHgwMCwweDQwLDB4MDAsMHgxOCwweDAwLDB4MTUsMHgwMCwweDE3LDB4MDYsMHgxYQ=="
-        )
-        'mini':(
+            ,
+        'mini':
             "MHgwMSwweDU5LDB4MDAsMHhhYiwweDAwLDB4MTcsMHgwMCwweDE1LDB4MDAsMHgxNywweDAwLDB4"
             "NDEsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAw"
             "LDB4MTUsMHgwMCwweDE4LDB4MDAsMHgxNSwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNyww"
@@ -72,10 +70,9 @@ IR_DATA = {
             "MCwweDQwLDB4MDAsMHgxNywweDAwLDB4NDAsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcs"
             "MHgwMCwweDE2LDB4MDAsMHgxNywweDAwLDB4MTUsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4"
             "MTcsMHgwMCwweDQwLDB4MDAsMHgxNywweDAwLDB4MTYsMHgwMCwweDE3LDB4MDYsMHgxOQ=="
-        )
     },
     'light2': {
-        'on':(
+        'on':
             "MHgwMSwweDU5LDB4MDAsMHhhYiwweDAwLDB4MTcsMHgwMCwweDE1LDB4MDAsMHgxNywweDAwLDB4"
             "NDAsMHgwMCwweDE4LDB4MDAsMHgxNSwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAw"
             "LDB4MTUsMHgwMCwweDE4LDB4MDAsMHgxNSwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNyww"
@@ -88,8 +85,8 @@ IR_DATA = {
             "MCwweDQwLDB4MDAsMHgxNywweDAwLDB4MTYsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcs"
             "MHgwMCwweDQwLDB4MDAsMHgxNywweDAwLDB4NDAsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4"
             "MTcsMHgwMCwweDQwLDB4MDAsMHgxNywweDAwLDB4NDAsMHgwMCwweDE3LDB4MDYsMHgxYg=="
-        )
-        'off':(
+            ,
+        'off':
             "MHgwMSwweDU5LDB4MDAsMHhhYiwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAwLDB4"
             "NDAsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAw"
             "LDB4MTUsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNyww"
@@ -102,8 +99,8 @@ IR_DATA = {
             "MCwweDQxLDB4MDAsMHgxNywweDAwLDB4MTUsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4MTcs"
             "MHgwMCwweDE1LDB4MDAsMHgxOCwweDAwLDB4MTUsMHgwMCwweDE3LDB4MDAsMHgxNiwweDAwLDB4"
             "MTcsMHgwMCwweDQwLDB4MDAsMHgxNywweDAwLDB4NDAsMHgwMCwweDE3LDB4MDYsMHgxYg=="
-        )
-        'mini':(
+            ,
+        'mini':
             "MHgwMSwweDU5LDB4MDAsMHhhYSwweDAwLDB4MTcsMHgwMCwweDE1LDB4MDAsMHgxNywweDAwLDB4"
             "NDEsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNywweDAw"
             "LDB4MTYsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTcsMHgwMCwweDE2LDB4MDAsMHgxNyww"
@@ -116,7 +113,6 @@ IR_DATA = {
             "MCwweDQwLDB4MDAsMHgxNywweDAwLDB4NDEsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4MTcs"
             "MHgwMCwweDE2LDB4MDAsMHgxNywweDAwLDB4MTYsMHgwMCwweDE3LDB4MDAsMHgxNSwweDAwLDB4"
             "MTcsMHgwMCwweDQxLDB4MDAsMHgxNywweDAwLDB4NDAsMHgwMCwweDE3LDB4MDYsMHgxYg=="
-        )
     }
 }
 
