@@ -57,7 +57,7 @@ bindsym $mod+t $exec $terminal
 bindsym $mod+v $exec $msg split v && notify-send 'tile vertically'
 bindsym $mod+w $exec $browser
 #bindsym $mod+x $exec $msg layout toggle stacking tabbed splith
-bindsym $mod+x $exec $exec xkill
+bindsym $mod+x $exec xkill
 bindsym $mod+z $exec pkill picom || picom -b
 bindsym $mod+Shift+0 $exec sleep 0.5 && xset dpms force off
 bindsym $mod+Left $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left
