@@ -64,8 +64,8 @@ alias refile="refilename.py"
 
 ## alias_cmdで定義されない場合、こちらが適応される
 alias cat="cat"
-alias vim="vim"
-alias vi="vim"
+alias vim="nvim"
+alias vi="nvim"
 
 alias gitf="echo 'error!!'"
 alias gcm="git commit -m "
