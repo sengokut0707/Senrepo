@@ -2,5 +2,5 @@
 
 SCRIPT_DIR=$(cd $(dirname $0) && pwd)
 
-mkdir -p ~/.vim/undo
-cat $SCRIPT_DIR/vimrc > ~/.vimrc
+mkdir -p ~/.config/nvim
+cat $SCRIPT_DIR/vimrc > ~/.config/nvim/init.vim
