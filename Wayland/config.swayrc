@@ -1,12 +1,14 @@
 ## base
 set $mod Mod4
 set $exec exec --no-startup-id
+set $sway_bin $HOME/.config/sway/sway_bin/ 
+
 set $browser google-chrome-stable
 set $terminal foot
 set $clipboard cliphist list | wofi --show dmenu | cliphist decode | wl-copy
 set $gdrive https://drive.google.com/drive/my-drive
 set $gmail https://mail.google.com/
-set $bookmark $HOME/.config/sway/sway_bin/wofi_launch.py -t $HOME/.config/sway/wofi_menu.txt
+set $bookmark $sway_bin/wofi_launch.py -t $HOME/.config/sway/wofi_menu.txt
 set $volume_up pactl set-sink-volume @DEFAULT_SINK@ +5%
 set $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
 set $volume_mute pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -60,20 +62,20 @@ bindsym $mod+w $exec $browser
 bindsym $mod+x $exec xkill
 bindsym $mod+z $exec pkill picom || picom -b
 bindsym $mod+Shift+0 $exec sleep 0.5 && xset dpms force off
-bindsym $mod+Left $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left
-bindsym $mod+Shift+Left $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left -m
+bindsym $mod+Left $exec $sway_bin/move_ws.py -d left
+bindsym $mod+Shift+Left $exec $sway_bin/move_ws.py -d left -m
 bindsym $mod+Return $exec $terminal
-bindsym $mod+Right $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right
-bindsym $mod+Shift+Right $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right -m
+bindsym $mod+Right $exec $sway_bin/move_ws.py -d right
+bindsym $mod+Shift+Right $exec $sway_bin/move_ws.py -d right -m
 bindsym $mod+Tab $exec $msg workspace next
 bindsym $mod+Shift+Tab $exec $msg workspace prev
-bindsym $mod+comma $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left
-bindsym $mod+Shift+comma $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d left -m
+bindsym $mod+comma $exec $sway_bin/move_ws.py -d left
+bindsym $mod+Shift+comma $exec $sway_bin/move_ws.py -d left -m
 bindsym $mod+minus $exec $volume_down
-bindsym $mod+Shift+minus $exec /home/sengokut0707/.config/sway/sway_bin/brightness_down.sh
-bindsym $mod+period $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right
-bindsym $mod+Shift+period $exec /home/sengokut0707/.config/sway/sway_bin/move_ws.py -d right -m
+bindsym $mod+Shift+minus $exec $sway_bin/brightness_down.sh
+bindsym $mod+period $exec $sway_bin/move_ws.py -d right
+bindsym $mod+Shift+period $exec $sway_bin/move_ws.py -d right -m
 bindsym $mod+equal $exec $volume_up
-bindsym $mod+Shift+equal $exec /home/sengokut0707/.config/sway/sway_bin/brightness_up.sh
+bindsym $mod+Shift+equal $exec $sway_bin/brightness_up.sh
 bindsym $mod+semicolon $exec $msg split h && notify-send 'tile horizontally'
 bindsym $mod+space $exec $msg floating toggle
