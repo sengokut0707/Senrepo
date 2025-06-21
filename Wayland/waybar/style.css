@@ -18,7 +18,7 @@ window#waybar {
 #battery,
 #disk,
 #tray {
-	background: #1a1a1a;
+	background: #292b2e;
 }
 
 #workspaces button {
@@ -26,7 +26,8 @@ window#waybar {
 	color: #fdf6e3;
 }
 #workspaces button.focused {
-	color: #268bd2;
+	background: #11bb33;
+	color: #fdf6e3;
 }
 #workspaces button:hover {
 	box-shadow: inherit;
