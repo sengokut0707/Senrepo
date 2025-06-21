@@ -3,3 +3,5 @@
 alias gcm="$alias_bin/gcm.sh"
 alias unar="$alias_bin/unar_argv.sh"
 alias rmv="$alias_bin/remove.sh"
+alias vim="$alias_bin/exec_vim.sh"
+alias vi="$alias_bin/exec_vim.sh"

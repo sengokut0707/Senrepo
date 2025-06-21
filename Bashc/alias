@@ -57,15 +57,11 @@ alias refile="refilename.py"
 #alias gitf="$alias_bin/gitfor.sh"
 #alias gcm="$alias_bin/gcm.sh"
 #alias cat="$alias_bin/catls.sh"
-#alias vim="$alias_bin/vimls.sh"
-#alias vi="$alias_bin/vimls.sh"
 #alias unar="$alias_bin/unar_argv.sh"
 #alias rmv="$alias_bin/remove.sh"
 
 ## alias_cmdで定義されない場合、こちらが適応される
 alias cat="cat"
-alias vim="nvim || gvim || vim"
-alias vi="nvim || gvim || vim"
 
 alias gitf="echo 'error!!'"
 alias gcm="git commit -m "
