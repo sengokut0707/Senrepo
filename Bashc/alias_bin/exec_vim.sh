@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-evim $@ || gvim $@ || vim $@
+nvim $@ || gvim $@ || vim $@
