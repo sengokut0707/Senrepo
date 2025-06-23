@@ -23,7 +23,6 @@ set $screen_sleep   swayidle -w timeout 3600 'swaymsg "output * power off"' resu
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 ## polkit
 exec fcitx5 ## 文字入力
 exec dunst ## 通知
-exec picom -b ## 透過
 exec wl-paste --watch cliphist store & ## clipbord
 exec batsignal  ## バッテリ低下警告
 exec $bg
@@ -57,8 +56,6 @@ bindsym $mod+v              split v
 bindsym $mod+Shift+v        split h
 bindsym $mod+w              exec $browser
 bindsym $mod+x              exec xkill
-bindsym $mod+z              exec pkill picom || picom -b
-bindsym $mod+Left           exec $sway_bin/move_ws.py -d left
 bindsym $mod+Shift+Left     exec $sway_bin/move_ws.py -d left -m
 bindsym $mod+Return         exec $terminal
 bindsym $mod+Shift+Return   exec $browser
