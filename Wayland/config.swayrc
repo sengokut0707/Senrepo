@@ -4,18 +4,18 @@ set $sway_bin $HOME/.config/sway/sway_bin/
 
 set $bg         swaybg -i $HOME/.wallpaper/*.png -m fill
 set $browser    google-chrome-stable
+set $menu       wofi -G --show drun
 set $terminal   foot
 set $clipboard  cliphist list | wofi --show dmenu | cliphist decode | wl-copy
 set $gdrive     https://drive.google.com/drive/my-drive
 set $gmail      https://mail.google.com/
 set $bookmark   $sway_bin/wofi_launch.py -t $HOME/.config/sway/wofi_menu.txt
-set $volume_up  pactl set-sink-volume @DEFAULT_SINK@ +5%
-set $volume_down pactl set-sink-volume @DEFAULT_SINK@ -5%
-set $volume_mute pactl set-sink-mute @DEFAULT_SINK@ toggle
-set $screenshot_full grimshot --notify save output $HOME/screenshot_$(date "+%y%m%d%H%M%S").png
-set $screenshot_window grimshot --notify save window $HOME/screenshot_$(date "+%y%m%d%H%M%S").png
-set $screen_sleep swayidle -w timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
-set $menu wofi -G --show drun
+set $volume_up      pactl set-sink-volume @DEFAULT_SINK@ +5%
+set $volume_down    pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $volume_mute    pactl set-sink-mute @DEFAULT_SINK@ toggle
+set $screenshotf    grimshot --notify save output $HOME/screenshot_$(date "+%y%m%d%H%M%S").png
+set $screenshotw    grimshot --notify save window $HOME/screenshot_$(date "+%y%m%d%H%M%S").png
+set $screen_sleep   swayidle -w timeout 3600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
 
 
 
@@ -33,46 +33,46 @@ exec waybar
 
 
 ## shortcut
-bindsym $mod+a          exec $menu
-bindsym $mod+b          exec $bookmark
-bindsym $mod+c          exec $clipboard
-bindsym $mod+f          fullscreen
-bindsym $mod+g          exec xdg-open $gmail
-bindsym $mod+d          exec xdg-open $gdrive
-bindsym $mod+h          exec killall waybar || waybar
-bindsym $mod+i          focus up
-bindsym $mod+Shift+i    move up
-bindsym $mod+j          focus left
-bindsym $mod+Shift+j    move left
-bindsym $mod+k          focus down
-bindsym $mod+Shift+k    move down
-bindsym $mod+l          focus right
-bindsym $mod+Shift+l    move right
-bindsym $mod+m          exec $volume_mute
-bindsym $mod+p          exec $screenshot_window
-bindsym $mod+Shift+p    exec $screenshot_full
-bindsym $mod+Shift+q    kill
-bindsym $mod+Shift+r    mode 'resize'
-bindsym $mod+t          exec $terminal
-bindsym $mod+v          split v
-bindsym $mod+Shift+v    split h
-bindsym $mod+w          exec $browser
-bindsym $mod+x          exec xkill
-bindsym $mod+z          exec pkill picom || picom -b
-bindsym $mod+Left       exec $sway_bin/move_ws.py -d left
-bindsym $mod+Shift+Left exec $sway_bin/move_ws.py -d left -m
-bindsym $mod+Return     exec $terminal
-bindsym $mod+Shift+Return        exec $browser
-bindsym $mod+Right      exec $sway_bin/move_ws.py -d right
-bindsym $mod+Shift+Right         exec $sway_bin/move_ws.py -d right -m
-bindsym $mod+Tab        workspace next
-bindsym $mod+Shift+Tab  workspace prev
-bindsym $mod+comma      exec $sway_bin/move_ws.py -d left
-bindsym $mod+Shift+comma         exec $sway_bin/move_ws.py -d left -m
-bindsym $mod+minus      exec $volume_down
-bindsym $mod+Shift+minus         exec $sway_bin/brightness_down.sh
-bindsym $mod+period     exec $sway_bin/move_ws.py -d right
-bindsym $mod+Shift+period         exec $sway_bin/move_ws.py -d right -m
-bindsym $mod+equal      exec $volume_up
-bindsym $mod+Shift+equal          exec $sway_bin/brightness_up.sh
-bindsym $mod+space      floating toggle
+bindsym $mod+a              exec $menu
+bindsym $mod+b              exec $bookmark
+bindsym $mod+c              exec $clipboard
+bindsym $mod+f              fullscreen
+bindsym $mod+g              exec xdg-open $gmail
+bindsym $mod+d              exec xdg-open $gdrive
+bindsym $mod+h              exec killall waybar || waybar
+bindsym $mod+i              focus up
+bindsym $mod+Shift+i        move up
+bindsym $mod+j              focus left
+bindsym $mod+Shift+j        move left
+bindsym $mod+k              focus down
+bindsym $mod+Shift+k        move down
+bindsym $mod+l              focus right
+bindsym $mod+Shift+l        move right
+bindsym $mod+m              exec $volume_mute
+bindsym $mod+p              exec $screenshotw
+bindsym $mod+Shift+p        exec $screenshotf
+bindsym $mod+Shift+q        kill
+bindsym $mod+Shift+r        mode 'resize'
+bindsym $mod+t              exec $terminal
+bindsym $mod+v              split v
+bindsym $mod+Shift+v        split h
+bindsym $mod+w              exec $browser
+bindsym $mod+x              exec xkill
+bindsym $mod+z              exec pkill picom || picom -b
+bindsym $mod+Left           exec $sway_bin/move_ws.py -d left
+bindsym $mod+Shift+Left     exec $sway_bin/move_ws.py -d left -m
+bindsym $mod+Return         exec $terminal
+bindsym $mod+Shift+Return   exec $browser
+bindsym $mod+Right          exec $sway_bin/move_ws.py -d right
+bindsym $mod+Shift+Right    exec $sway_bin/move_ws.py -d right -m
+bindsym $mod+Tab            workspace next
+bindsym $mod+Shift+Tab      workspace prev
+bindsym $mod+comma          exec $sway_bin/move_ws.py -d left
+bindsym $mod+Shift+comma    exec $sway_bin/move_ws.py -d left -m
+bindsym $mod+minus          exec $volume_down
+bindsym $mod+Shift+minus    exec $sway_bin/brightness_down.sh
+bindsym $mod+period         exec $sway_bin/move_ws.py -d right
+bindsym $mod+Shift+period   exec $sway_bin/move_ws.py -d right -m
+bindsym $mod+equal          exec $volume_up
+bindsym $mod+Shift+equal    exec $sway_bin/brightness_up.sh
+bindsym $mod+space          floating toggle
