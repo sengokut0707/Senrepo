@@ -3,9 +3,11 @@
 {
     "layer": "top",
     "position": "top",
+    "spacing": 1,
 
     "modules-left": [
         "sway/workspaces",
+        "sway/mode",
     ],
     "modules-center": [
     ],
@@ -23,6 +25,9 @@
     "sway/workspaces": {
         "disable-scroll": true,
         "format": "{name}"
+    },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>"
     },
     "custom/update":{
         "format":"{}",
@@ -46,16 +51,38 @@
         "on-click-right": "pavucontrol"
     },
     "memory": {
+        // "format": "Mem:{}%",
+        "format-critical":  "<span color='#c20821'><b>Mem:{}%</b></span>",
+        "format-high":      "<span color='#e03c52'>Mem:{}%</span>",
+        "format-medium":    "<span color='#85c600'>Mem:{}%</span>",
+        "format-low":       "<span color='grey'>Mem:LOW</span>",
+        "tooltip": false,
         "interval": 5,
-        "format": "Mem {}%"
+        "states": {
+            "critical": 80,
+            "high": 50,
+            "medium": 15,
+            "low": 0,
+        },
     },
     "cpu": {
-        "interval": 5,
-        "format": "CPU {usage:2}%"
+        // "format": "{usage:2}%",
+        "format-critical":  "<span color='#c20821'><b>CPU:MAX</b></span>",
+        "format-high":      "<span color='#e03c52'>CPU:HIGH</span>",
+        "format-medium":    "<span color='#85c600'>CPU:MED</span>",
+        "format-low":       "<span color='grey'>CPU:LOW</span>",
+        "tooltip": false,
+        "interval": 2,
+        "states": {
+            "critical": 80,
+            "high": 50,
+            "medium": 15,
+            "low": 0,
+        },
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "WiFi ",
+        "format-wifi": "{essid} ",
         "tooltip-format": "{essid} {signalStrength}%",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
@@ -68,6 +95,8 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
         "format-icons": [
             "",
             "",
