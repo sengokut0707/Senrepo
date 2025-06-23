@@ -26,7 +26,6 @@ exec dunst ## 通知
 exec picom -b ## 透過
 exec wl-paste --watch cliphist store & ## clipbord
 exec batsignal  ## バッテリ低下警告
-exec xrdb -merge $HOME/.Xresources
 exec $bg
 exec $screen_sleep
 exec waybar
