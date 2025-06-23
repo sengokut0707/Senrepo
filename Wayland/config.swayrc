@@ -58,7 +58,8 @@ bindsym $mod+t          $exec $terminal
 bindsym $mod+v          $exec $msg split v && notify-send 'tile vertically'
 bindsym $mod+w          $exec $browser
 bindsym $mod+x          $exec xkill
-bindsym $mod+z          $exec pkill picom || picom -b
+#bindsym $mod+z          $exec pkill picom || picom -b
+bindsym $mod+z          $exec killall waybar || waybar
 bindsym $mod+Left       $exec $sway_bin/move_ws.py -d left
 bindsym $mod+Shift+Left $exec $sway_bin/move_ws.py -d left -m
 bindsym $mod+Return     $exec $terminal
