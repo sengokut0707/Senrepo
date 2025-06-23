@@ -7,3 +7,4 @@ mkdir -p $config_dir
 rsync -avzuh --delete ${SCRIPT_DIR}/waybar/* $config_dir
 
 echo 'otf-font-awesome please install'
+pkill waybar ; waybar &
