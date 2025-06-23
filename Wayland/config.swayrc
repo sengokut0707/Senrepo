@@ -53,9 +53,9 @@ bindsym $mod+Shift+q        kill
 bindsym $mod+Shift+r        mode 'resize'
 bindsym $mod+t              exec $terminal
 bindsym $mod+v              split v
-bindsym $mod+Shift+v        split h
+bindsym $mod+semicolon      split h
 bindsym $mod+w              exec $browser
-bindsym $mod+x              exec xkill
+bindsym $mod+Shift+x        exec xkill
 bindsym $mod+Shift+Left     exec $sway_bin/move_ws.py -d left -m
 bindsym $mod+Return         exec $terminal
 bindsym $mod+Shift+Return   exec $browser
@@ -65,10 +65,10 @@ bindsym $mod+Tab            workspace next
 bindsym $mod+Shift+Tab      workspace prev
 bindsym $mod+comma          exec $sway_bin/move_ws.py -d left
 bindsym $mod+Shift+comma    exec $sway_bin/move_ws.py -d left -m
-bindsym $mod+minus          exec $volume_down
-bindsym $mod+Shift+minus    exec $sway_bin/brightness_down.sh
 bindsym $mod+period         exec $sway_bin/move_ws.py -d right
 bindsym $mod+Shift+period   exec $sway_bin/move_ws.py -d right -m
 bindsym $mod+equal          exec $volume_up
+bindsym $mod+minus          exec $volume_down
 bindsym $mod+Shift+equal    exec $sway_bin/brightness_up.sh
+bindsym $mod+Shift+minus    exec $sway_bin/brightness_down.sh
 bindsym $mod+space          floating toggle
