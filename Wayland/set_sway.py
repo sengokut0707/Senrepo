@@ -12,6 +12,7 @@ def main():
 
     i3_cmd = f"rsync -avzuh --delete {script_dir}/ {config_dir}"
     i3_proc = subprocess.run(i3_cmd, shell=True)
+    reload_proc = subprocess.run('swaymsg reload || i3-msg restart', shell=True)
 
 if __name__ == "__main__":
     main()
