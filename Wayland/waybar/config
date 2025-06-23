@@ -30,9 +30,8 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "custom/update":{
-        "format":"{}",
-        "return-type":"json",
         "exec":"python ~/.config/waybar/scripts/get_update.py",
+        "format":"<span color='red'>{}</span>",
         "interval": 300,
     },
     "pulseaudio": {

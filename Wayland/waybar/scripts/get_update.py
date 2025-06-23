@@ -15,9 +15,9 @@ def main():
     update = int(yay_update)
 
     if update != 0:
-        print(f'"full_text":"Update" , "color":"#dddd00"')
-    #else:
-    #    print('"full_text":"newest"')
+        print('Update')
+#    else:
+#        print('newest')
 
 
 main()
