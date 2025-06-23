@@ -3,7 +3,7 @@
 {
     "layer": "top",
     "position": "top",
-    "spacing": 1,
+    "spacing": 6,
 
     "modules-left": [
         "sway/workspaces",
@@ -81,7 +81,7 @@
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ",
+        "format-wifi": "{essid}",
         "tooltip-format": "{essid} {signalStrength}%",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
