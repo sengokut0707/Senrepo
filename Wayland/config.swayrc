@@ -37,6 +37,7 @@ exec --no-startup-id waybar
 ## shortcut
 bindsym $mod+a          $exec $menu
 bindsym $mod+b          $exec $bookmark
+bindsym $mod+Shift+b    $exec killall waybar || waybar
 bindsym $mod+c          $exec $clipboard
 bindsym $mod+g          $exec xdg-open $gmail
 bindsym $mod+d          $exec xdg-open $gdrive
@@ -58,8 +59,7 @@ bindsym $mod+t          $exec $terminal
 bindsym $mod+v          $exec $msg split v && notify-send 'tile vertically'
 bindsym $mod+w          $exec $browser
 bindsym $mod+x          $exec xkill
-#bindsym $mod+z          $exec pkill picom || picom -b
-bindsym $mod+z          $exec killall waybar || waybar
+bindsym $mod+z          $exec pkill picom || picom -b
 bindsym $mod+Left       $exec $sway_bin/move_ws.py -d left
 bindsym $mod+Shift+Left $exec $sway_bin/move_ws.py -d left -m
 bindsym $mod+Return     $exec $terminal
